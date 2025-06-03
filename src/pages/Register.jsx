@@ -9,7 +9,7 @@ import registerLottie from "../assets/Lotties/register.json";
 import useAuth from "../hooks/useAuth";
 
 const Register = () => {
-  const { register } = useAuth();
+  const { register, setUser, updateUser } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -17,7 +17,7 @@ const Register = () => {
   const navigate = useNavigate();
   const from = location.state || "/";
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -25,6 +25,8 @@ const Register = () => {
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value;
+
+    console.log(name, email, password, photoURL);
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
@@ -34,20 +36,24 @@ const Register = () => {
       return;
     }
 
-    try {
-      toast.success("Registered successfully!");
-
-      register(email, password)
-        .then((res) => {
-          console.log(res);
-          navigate(from);
-        })
-        .catch((err) => {
-          console.log(err);
+    register(email, password)
+      .then((res) => {
+        updateUser({ displayName: name, photoURL: photoURL }).then(() => {
+          setUser((prevUser) => {
+            return {
+              ...prevUser,
+              displayName: name,
+              photoURL: photoURL,
+            };
+          });
         });
-    } catch (err) {
-      toast.error("Registration failed. Try again.");
-    }
+        console.log(res);
+        toast.success("Registered successfully!");
+        navigate(from);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router";
 import { FaBars, FaTimes } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
+import Loading from "../pages/shared/Loading"
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { logOut, user } = useAuth();
-  // const user = {
-  //   displayName: "John Doe",
-  //   email: "johndoe@example.com",
-  //   photoURL: "https://i.pravatar.cc/150?img=3",
-  // };
+  const { logOut, user ,loading,setUser} = useAuth();
+ 
+  
   const handleLogout = () => {
     logOut()
       .then((res) => {
@@ -62,6 +60,9 @@ const Navbar = () => {
       
     </>
   );
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <nav className="bg-[#2563EB] text-white shadow-md">
