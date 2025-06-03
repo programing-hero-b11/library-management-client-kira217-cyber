@@ -1,9 +1,25 @@
 import React from "react";
+import useAuth from "../../hooks/useAuth";
+import { useLocation, useNavigate } from "react-router";
 
 const SocialLogin = () => {
+  const {googleLogin} = useAuth()
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state || '/';
+
+  const handleGoogleLogin = () =>{
+    googleLogin().then(res=>{
+      console.log(res)
+      navigate(from)
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
+
   return (
     <div>
-      <button className="btn w-full bg-white text-black border-[#e5e5e5]">
+      <button onClick={handleGoogleLogin} className="btn w-full bg-white text-black border-[#e5e5e5]">
         <svg
           aria-label="Google logo"
           width="16"
