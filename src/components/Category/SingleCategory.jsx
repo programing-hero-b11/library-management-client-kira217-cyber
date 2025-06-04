@@ -6,11 +6,6 @@ const SingleCategory = () => {
   const { name } = useParams();
   const [books, setBooks] = useState([]);
 
-//   useEffect(() => {
-    // axios(`${import.meta.env.VITE_API_URL}/books?category=${name}`)
-//       .then((res) => setBooks(res.data))
-//       .catch((err) => console.error(err));
-//   }, [name]);
 
     useEffect(() => {
     axios(`${import.meta.env.VITE_API_URL}/books?category=${name}`)
