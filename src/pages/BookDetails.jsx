@@ -122,7 +122,7 @@ const BookDetails = () => {
             <button
               onClick={() => setIsOpen(true)}
               disabled={quantity <= 0 || alreadyBorrowed}
-              className={`mt-4 px-4 py-2 rounded text-white font-semibold ${
+              className={`mt-4 px-4 py-2 hover:cursor-pointer rounded text-white font-semibold ${
                 quantity <= 0 || alreadyBorrowed
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-[#2563EB] hover:bg-blue-700 transition"

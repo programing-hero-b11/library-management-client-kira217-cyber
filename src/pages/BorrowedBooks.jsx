@@ -71,7 +71,7 @@ const BorrowedBooks = () => {
 
               <button
                 onClick={() => handleReturn(book._id)}
-                className="mt-auto bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition mt-4"
+                className="mt-auto hover:cursor-pointer bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition mt-4"
               >
                 Return
               </button>

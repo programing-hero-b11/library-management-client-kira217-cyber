@@ -10,12 +10,14 @@ import BookDetails from "../pages/BookDetails";
 import BorrowedBooks from "../pages/BorrowedBooks";
 import UpdateBook from "../pages/UpdateBook";
 import axios from "axios";
-import Loading from "../pages/shared/Loading";
+import ErrorPage from "../pages/ErrorPage";
+import SingleCategory from "../components/Category/SingleCategory";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: RootLayouts,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -63,6 +65,12 @@ export const router = createBrowserRouter([
             <BorrowedBooks></BorrowedBooks>
           </PrivetRoute>
         ),
+      },
+      {
+        path:"/category/:name",
+        element:<PrivetRoute>
+            <SingleCategory></SingleCategory>
+        </PrivetRoute>
       },
       {
         path: "/updateBook/:id",
