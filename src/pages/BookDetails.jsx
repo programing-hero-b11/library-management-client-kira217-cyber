@@ -60,7 +60,7 @@ const BookDetails = () => {
             <button
               onClick={() => setIsOpen(true)}
               disabled={quantity <= 0}
-              className={`mt-4 px-4 py-2 rounded text-white font-semibold ${
+              className={`mt-4 px-4 hover:cursor-pointer py-2 rounded text-white font-semibold ${
                 quantity <= 0
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-[#2563EB] hover:bg-blue-700 transition"
@@ -110,7 +110,7 @@ const BookDetails = () => {
               </div>
               <button
                 onClick={handleBorrow}
-                className="w-full mt-4 bg-[#2563EB] text-white py-2 rounded font-semibold hover:bg-blue-700 transition"
+                className="w-full mt-4 hover:cursor-pointer bg-[#2563EB] text-white py-2 rounded font-semibold hover:bg-blue-700 transition"
               >
                 Confirm Borrow
               </button>
