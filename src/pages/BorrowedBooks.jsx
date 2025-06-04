@@ -20,8 +20,17 @@ const BorrowedBooks = () => {
 
   const handleReturn = (bookId) => {
     // Simulate return by removing from UI
-    setBorrowed((prev) => prev.filter((book) => book._id !== bookId));
-    toast.success("Book returned successfully!");
+
+    axios
+      .delete(`${import.meta.env.VITE_API_URL}/borrowed/${bookId}`)
+      .then((res) => {
+        console.log(res.data);
+        setBorrowed((prev) => prev.filter((book) => book._id !== bookId));
+        toast.success("Book returned successfully!");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     // Optionally, show console message for simulating quantity update
     console.log(`Book with ID ${bookId} returned (simulate +1 quantity).`);
