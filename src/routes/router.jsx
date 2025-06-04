@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
         },
         {
             path:'allBooks',
-            loader:axios(''),
+            loader:()=>axios(`${import.meta.env.VITE_API_URL}/books`),
             element:<PrivetRoute>
                 <AllBooks></AllBooks>
             </PrivetRoute>
@@ -42,7 +42,8 @@ export const router = createBrowserRouter([
             </PrivetRoute>
         },
         {
-            path:'bookDetails',
+            path:'/bookDetails/:id',
+            loader:({params})=>axios(`${import.meta.env.VITE_API_URL}/books/${params.id}`),
             element:<PrivetRoute>
                 <BookDetails></BookDetails>
             </PrivetRoute>
@@ -54,7 +55,8 @@ export const router = createBrowserRouter([
             </PrivetRoute>
         },
         {
-            path:'updateBook',
+            path:'/updateBook/:id',
+            loader:({params})=>axios(`${import.meta.env.VITE_API_URL}/books/${params.id}`),
             element:<PrivetRoute>
                 <UpdateBook></UpdateBook>
             </PrivetRoute>

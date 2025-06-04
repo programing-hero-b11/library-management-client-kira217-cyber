@@ -1,43 +1,17 @@
 import React, { useState } from "react";
+import { Link, useLoaderData } from "react-router";
 
-// Sample books data (you can replace with your real data from DB)
-const sampleBooks = [
-  {
-    id: 1,
-    name: "Jungle Quest",
-    author: "Amit Roy",
-    image: "https://i.ibb.co/vz1kFgJ/jungle-quest.jpg",
-    category: "Adventure",
-    rating: 4,
-    quantity: 5,
-  },
-  {
-    id: 2,
-    name: "Island Mysteries",
-    author: "Rekha Das",
-    image: "https://i.ibb.co/3dm13L1/island-mystery.jpg",
-    category: "Adventure",
-    rating: 5,
-    quantity: 0,
-  },
-  {
-    id: 3,
-    name: "Mountain Escape",
-    author: "Tanvir Hasan",
-    image: "https://i.ibb.co/gdQxgLd/mountain-escape.jpg",
-    category: "Adventure",
-    rating: 3,
-    quantity: 8,
-  },
-];
 
 const AllBooks = () => {
+
+const allBooks = useLoaderData()
+const books = allBooks.data
   const [viewType, setViewType] = useState("card");
   const [showAvailableOnly, setShowAvailableOnly] = useState(false);
 
   const filteredBooks = showAvailableOnly
-    ? sampleBooks.filter((book) => book.quantity > 0)
-    : sampleBooks;
+    ? books.filter((book) => book.quantity > 0)
+    : books;
 
   return (
     <div className="min-h-screen px-4 py-6 bg-gray-50">
@@ -88,10 +62,10 @@ const AllBooks = () => {
                 </p>
                 <div className="mt-auto flex justify-between gap-2 pt-4">
                   <button className="w-1/2 hover:cursor-pointer bg-[#2563EB] text-white py-1 rounded hover:bg-blue-700 transition">
-                    Update
+                   <Link to={`/updateBook/${book._id}`}> Update</Link>
                   </button>
                   <button className="w-1/2 hover:cursor-pointer bg-green-600 text-white py-1 rounded hover:bg-green-700 transition">
-                    View Details
+                    <Link to={`/bookDetails/${book._id}`}>View Details</Link>
                   </button>
                 </div>
               </div>
@@ -131,10 +105,10 @@ const AllBooks = () => {
                     <td className="p-2">{book.quantity}</td>
                     <td className="p-2 space-x-2">
                       <button className="bg-[#2563EB] hover:cursor-pointer text-white px-2 py-1 rounded hover:bg-blue-700 transition text-xs">
-                        Update
+                       <Link to={`/updateBook/${book._id}`}> Update</Link>
                       </button>
                       <button className="bg-green-600 hover:cursor-pointer text-white px-2 py-1 rounded hover:bg-green-700 transition text-xs">
-                        View Details
+                        <Link to={`/bookDetails/${book._id}`}> View Details</Link>
                       </button>
                     </td>
                   </tr>
