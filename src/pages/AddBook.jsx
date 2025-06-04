@@ -2,6 +2,7 @@ import React from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../hooks/useAuth";
+import axios from "axios";
 
 const AddBook = () => {
   const { user } = useAuth();
@@ -37,9 +38,17 @@ const AddBook = () => {
       email: user?.email || "unknown", // Optional: Add user's email
     };
 
-    console.log(bookData); // Replace with API call to DB
-    toast.success("Book added successfully!");
-    form.reset();
+    axios
+      .post(`${import.meta.env.VITE_API_URL}/books`, bookData)
+      .then((res) => {
+        if (res.data.insertedId) {
+          toast.success("Book added successfully!");
+          form.reset();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

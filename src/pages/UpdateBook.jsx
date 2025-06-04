@@ -164,7 +164,7 @@ const UpdateBook = () => {
           <div className="sm:col-span-2">
             <button
               type="submit"
-              className="w-full bg-[#2563EB] text-white font-semibold py-2 rounded hover:bg-blue-700 transition"
+              className="w-full hover:cursor-pointer bg-[#2563EB] text-white font-semibold py-2 rounded hover:bg-blue-700 transition"
             >
               Update Book
             </button>
