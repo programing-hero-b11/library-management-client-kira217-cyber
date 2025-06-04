@@ -9,6 +9,7 @@ import AllBooks from "../pages/AllBooks";
 import BookDetails from "../pages/BookDetails";
 import BorrowedBooks from "../pages/BorrowedBooks";
 import UpdateBook from "../pages/UpdateBook";
+import axios from "axios";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ export const router = createBrowserRouter([
         },
         {
             path:'allBooks',
+            loader:axios(''),
             element:<PrivetRoute>
                 <AllBooks></AllBooks>
             </PrivetRoute>
