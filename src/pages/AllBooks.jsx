@@ -45,7 +45,7 @@ const books = allBooks.data
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {filteredBooks.map((book) => (
               <div
-                key={book.id}
+                key={book._id}
                 className="bg-white rounded-lg shadow p-4 flex flex-col"
               >
                 <img
@@ -90,7 +90,7 @@ const books = allBooks.data
               </thead>
               <tbody>
                 {filteredBooks.map((book) => (
-                  <tr key={book.id} className="border-b hover:bg-gray-100">
+                  <tr key={book._id} className="border-b hover:bg-gray-100">
                     <td className="p-2">
                       <img
                         src={book.image}

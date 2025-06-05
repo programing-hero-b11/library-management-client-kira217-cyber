@@ -10,7 +10,11 @@ const BorrowedBooks = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`${import.meta.env.VITE_API_URL}/borrowed/${user.email}`)
+        .get(`${import.meta.env.VITE_API_URL}/borrowed/${user.email}`,{
+          headers:{
+            authorization:`Bearer ${user.accessToken}`
+          }
+        })
         .then((res) => {
           setBorrowed(res.data); // Save borrowed books
         })
