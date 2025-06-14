@@ -20,7 +20,7 @@ const SingleCategory = () => {
   }, [name]);
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
+    <div className="max-w-6xl mx-auto p-4 pt-20">
       <h2 className="text-3xl font-bold mb-6">Books in: {name}</h2>
       {books.length === 0 ? (
         <p>No books found in this category.</p>

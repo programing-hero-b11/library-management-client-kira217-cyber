@@ -41,7 +41,7 @@ const BorrowedBooks = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
+    <div className="min-h-screen pt-20 bg-gray-100 py-10 px-4">
       <h2 className="text-3xl font-bold text-center text-[#2563EB] mb-6">
         My Borrowed Books
       </h2>

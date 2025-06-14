@@ -14,7 +14,7 @@ const books = allBooks.data
     : books;
 
   return (
-    <div className="min-h-screen px-4 py-6 bg-gray-50">
+    <div className="min-h-screen pt-20 px-4 py-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         {/* Header with View Toggle and Filter Button */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">

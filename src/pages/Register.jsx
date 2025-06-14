@@ -57,7 +57,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+    <div className="min-h-screen pt-20 bg-gray-50 flex items-center justify-center px-4">
       <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-center gap-10">
         {/* Form Section */}
         <div className="w-full max-w-md bg-white rounded-lg shadow-xl p-6">

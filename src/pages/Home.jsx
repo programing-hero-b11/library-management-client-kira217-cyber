@@ -6,7 +6,7 @@ import ExtraSection2 from '../components/ExtraSection/ExtraSection2';
 
 const Home = () => {
     return (
-        <div>
+        <div className='pt-15'>
            <Banner></Banner>
            <Categories></Categories>
            <ExtraSection></ExtraSection>

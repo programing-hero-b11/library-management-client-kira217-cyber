@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router";
 import { FaBars, FaTimes } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import Loading from "../pages/shared/Loading"
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +14,7 @@ const Navbar = () => {
     logOut()
       .then((res) => {
         console.log("User logged out successfully", res);
+        toast.success('Logout successfully')
       })
       .catch((err) => {
         console.log(err);
@@ -65,7 +67,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-[#2563EB] text-white shadow-md">
+    <nav className="bg-[#2563EB] text-white shadow-md fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
         {/* Logo/Title */}
         <div className="text-xl font-bold">
