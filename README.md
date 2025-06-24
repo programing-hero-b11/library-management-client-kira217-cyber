@@ -69,5 +69,5 @@
 
 1. Clone the frontend repo:
 ```bash
-git clone client :
+git clone client : https://github.com/programing-hero-b11/library-management-client-kira217-cyber.git
 git clone server :
